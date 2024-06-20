@@ -1,0 +1,187 @@
+/*****************************************************************************
+/*
+TITLE: CLAIMS                                                                                                                           
+AUTHOR: Ayush Kumar
+ROLL NUMBER: 2201CS95
+Declaration of Authorship
+This C++ file, asm.cpp, is part of the assignment of CS209 & CS210 at the department of Computer Science and Engineering, IIT Patna. 
+*/ 
+*****************************************************************************/
+
+
+----------------
+Files Submitted:
+----------------
+
+*asm.cpp
+*emu.cpp
+*claims.txt
+*4 given test files
+*2 extra test files (add and max)
+*bubble sort
+
+*All the files which I have submitted,(asm.cpp and emu.cpp and claims.txt), have my name and student id at the start, along with a declaration of authorship.
+
+The evidence for Assembler including the output files from the 4 test examples has also been uploaded in "Tests" file. They are test1(4 output files), test2(4 output files), test3(4 output file) and test4(4 output files) .
+
+All the test files have been tested and work properly. As for the evidence for the emulator is uploaded for all the 4 test examples: test1, test2, test3, test4 all having one .trace file formed from emulator
+
+Extra Test Files used- 
+* add.asm (+ 4 output files)
+* max.asm (+ 4 output files)
+
+Bubble Sort-
+*MyBubbleSort.asm (4 output files)
+
+*Both of my cpp programs did not show any errors and warnings when i compiled it with
+gcc -std=c89 -pedantic and gcc -std=c89 -pedantic -W -Wall -Wpointer-arith -Wwrite-strings -Wstrict-prototypes standard  or equilvalent ....or gcc ... or g++
+
+
+-------------------------
+COMPILATION INSTRUCTIONS:
+-------------------------
+=>
+asm.cpp - 
+	Windows- 
+	    
+		g++ asm.cpp -o asm
+	   	./asm <insert_file_name>.asm
+=>
+emu.cpp - 
+	Windows-
+		g++ emu.cpp -o emu
+	    	./emu  -<OPTION> <insert_file_name>.object
+		
+		where option can be : 
+			trace
+			before
+			after      
+
+=>
+All the input files are to be present in the same folder where the code is being executed
+
+=============================
+Program format and structure:
+=============================
+
+1. The two pass assembler:
+
+    * With two data structures to store respectively labels and mnemonic table with expected operands.
+    * Uses a single routine for both passes.
+    * Detects label erros.
+    * Consistent and sensible formatting with sensible program structure. 
+    * sensible variable, function & type names with explanatory comments.
+		* advanced listing file.
+		* assembles test programs.
+    * can implements and demonstrates the instruction SET.
+
+2. The emulator:
+
+    * with three data structures to store respectively memory, mnemonic table with expected operands and a linked list structure word.
+    * loads object file, 
+    * by giving the instructions like "-before/-after" , the program can produce memory dump before/after execution.
+    * by giving the instruction like "-trace", the program prints the result of program executed.
+    * detects errant programs.
+
+
+=============================
+Testing:
+=============================
+
+1. The assembler:
+
+I have tested four examples shown as below. The errors only occurred in the file test2.asm and the program immediately stopped on the second pass. 
+
+The others were tested without any errors detected and produced three output files (listing file, error log file and machine readable object file) for each example. 
+
+Further, as for testing on my own => I have also tested add.asm and max.asm
+ 
+
+1)
+#Input: ./asm test1.asm
+#Output: 
+a. test1.l 
+b. test1.log (without any error messages)
+c. test1.o
+
+2)
+#Input: ./asm test2.asm
+#Output: 
+a. test2.l 
+b. test2.log (with error messages shown as below but also in log file)
+c. test2.o 
+
+error messages:
+Line: 4 Repeated label definition: label
+Line: 5 Label not present: nonesuch
+Line: 6 Invalid expression: 08ge
+Line: 7 Missing operand: ldc
+Line: 8 Unexpected operand: add 5
+Line: 9 Invalid expression: 5, 6
+Line: 10 Invalid Label Name: 0def
+Line: 11 Ivalid Mnemonic: fibble
+Line: 12 Ivalid Mnemonic: 0def
+
+
+3)
+#Input: ./asm test3.asm
+#Output: 
+a. test3.l 
+b. test3.log (without any error messages)
+c. test3.o
+
+
+4)
+#Input: ./asm test4.asm
+#Output: 
+a. test4.l 
+b. test4.log (without any error messages)
+c. test4.o
+
+5)
+#Input: ./asm add.asm
+#Output: 
+a. add.l 
+b. add.log (without any error messages)
+c. add.o
+
+6)
+#Input: ./asm max.asm
+#Output: 
+a. max.l 
+b. max.log (without any error messages)
+c. max.o
+
+
+2. The emulator:
+
+I have tested four examples shown as below. The errors only occurred in the file test2.o and the program immediately stopped with an error message on the screen. 
+
+The others were tested without any errors detected and produced execution data both on the screen and output text file for each example according to the usage instruction. 
+
+1)
+#Input: ./emu -after test1.o
+#Output: test1.trace
+
+2)
+#Input: ./emu -after test2.o
+#Output: test2.trace
+
+
+3)
+#Input: ./emu -after test3.o
+#Output:  test3.trace
+
+4)
+#Input: ./emu -after test4.o
+#Output: test4.trace
+
+5)
+#Input: ./emu -after add.o
+#Output: add.trace
+
+6)
+#Input: ./emu -after max.o
+#Output: max.trace
+
+
